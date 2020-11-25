@@ -1,16 +1,16 @@
 require "http_actionmailer/railtie"
 require "http_actionmailer/mailer_api"
 
-module HttpActionmailer
+module HttpActionMailer
   class DeliveryMethod
     attr_accessor :settings
 
     def initialize(params)
-      self.settings = Rails.configuration.action_mailer.smtp_settings.merge!(params)
+      self.settings = params
     end
 
     def deliver!(mail)
-      MailerApi.new(mail_options(mail), mail.body.to_s).call
+      MailerApi.new(mail_options(mail), mail.body.to_s).send
     end
 
     private
@@ -21,8 +21,8 @@ module HttpActionmailer
           bcc: mail.bcc.try(:join, ', '),
           sender: mail.from.try(:join, ', '),
           subject: mail.subject,
-          endpoint: settings[:api_endpoint],
-          token: settings[:api_token]
+          endpoint: settings[:endpoint],
+          token: settings[:token]
         }
       end
   end

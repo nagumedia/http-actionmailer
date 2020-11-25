@@ -1,3 +1,5 @@
+require 'httparty'
+
 class MailerApi
   attr_reader :options, :message
 

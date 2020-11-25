@@ -6,7 +6,7 @@ require "http_actionmailer/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.name        = "http-actionmailer"
-  spec.version     = HttpActionmailer::VERSION
+  spec.version     = HttpActionMailer::VERSION
   spec.authors     = ["Nasrul Gunawan"]
   spec.email       = ["nasrul.remaza@gmail.com"]
   spec.homepage    = "https://github.com/nagumedia/http-actionmailer"

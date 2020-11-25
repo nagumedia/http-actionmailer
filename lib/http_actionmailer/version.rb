@@ -1,3 +1,3 @@
-module HttpActionmailer
+module HttpActionMailer
   VERSION = '0.1.0'
 end
